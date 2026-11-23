@@ -10,29 +10,39 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as LeadershipRouteImport } from './routes/leadership'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AssistantRouteImport } from './routes/assistant'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CommunityRouteImport } from './routes/community'
-import { Route as LearningRouteImport } from './routes/learning'
-import { Route as ApiGuideRouteImport } from './routes/api/guide'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as TradingRouteImport } from './routes/trading'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GoodsTradeRouteImport } from './routes/goods-trade'
+import { Route as LeadershipRouteImport } from './routes/leadership'
+import { Route as LearningRouteImport } from './routes/learning'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TradingRouteImport } from './routes/trading'
+import { Route as ApiGuideRouteImport } from './routes/api/guide'
 
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssistantRoute = AssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LeadershipRoute = LeadershipRouteImport.update({
-  id: '/leadership',
-  path: '/leadership',
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -40,9 +50,34 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AssistantRoute = AssistantRouteImport.update({
-  id: '/assistant',
-  path: '/assistant',
+const GoodsTradeRoute = GoodsTradeRouteImport.update({
+  id: '/goods-trade',
+  path: '/goods-trade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadershipRoute = LeadershipRouteImport.update({
+  id: '/leadership',
+  path: '/leadership',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearningRoute = LearningRouteImport.update({
+  id: '/learning',
+  path: '/learning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapRoute = RoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
@@ -60,132 +95,199 @@ const TradingRoute = TradingRouteImport.update({
   path: '/trading',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiGuideRoute = ApiGuideRouteImport.update({
   id: '/api/guide',
   path: '/api/guide',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LearningRoute = LearningRouteImport.update({
-  id: '/learning',
-  path: '/learning',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CommunityRoute = CommunityRouteImport.update({
-  id: '/community',
-  path: '/community',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GoodsTradeRoute = GoodsTradeRouteImport.update({
-  id: '/goods-trade',
-  path: '/goods-trade',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProfileRoute = ProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RoadmapRoute = RoadmapRouteImport.update({
-  id: '/roadmap',
-  path: '/roadmap',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/leadership': typeof LeadershipRoute
-  '/contact': typeof ContactRoute
   '/assistant': typeof AssistantRoute
+  '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
-  '/learning': typeof LearningRoute
-  '/api/guide': typeof ApiGuideRoute
-  '/privacy': typeof PrivacyRoute
-  '/trading': typeof TradingRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/robots.txt': typeof RobotsDottxtRoute
+  '/contact': typeof ContactRoute
   '/goods-trade': typeof GoodsTradeRoute
+  '/leadership': typeof LeadershipRoute
+  '/learning': typeof LearningRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/roadmap': typeof RoadmapRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/trading': typeof TradingRoute
+  '/api/guide': typeof ApiGuideRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/leadership': typeof LeadershipRoute
-  '/contact': typeof ContactRoute
   '/assistant': typeof AssistantRoute
+  '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
-  '/learning': typeof LearningRoute
-  '/api/guide': typeof ApiGuideRoute
-  '/privacy': typeof PrivacyRoute
-  '/trading': typeof TradingRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/robots.txt': typeof RobotsDottxtRoute
+  '/contact': typeof ContactRoute
   '/goods-trade': typeof GoodsTradeRoute
+  '/leadership': typeof LeadershipRoute
+  '/learning': typeof LearningRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/roadmap': typeof RoadmapRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/trading': typeof TradingRoute
+  '/api/guide': typeof ApiGuideRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
-  '/leadership': typeof LeadershipRoute
-  '/contact': typeof ContactRoute
   '/assistant': typeof AssistantRoute
+  '/auth': typeof AuthRoute
   '/community': typeof CommunityRoute
-  '/learning': typeof LearningRoute
-  '/api/guide': typeof ApiGuideRoute
-  '/privacy': typeof PrivacyRoute
-  '/trading': typeof TradingRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/robots.txt': typeof RobotsDottxtRoute
+  '/contact': typeof ContactRoute
   '/goods-trade': typeof GoodsTradeRoute
+  '/leadership': typeof LeadershipRoute
+  '/learning': typeof LearningRoute
+  '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
   '/roadmap': typeof RoadmapRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/trading': typeof TradingRoute
+  '/api/guide': typeof ApiGuideRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/leadership' | '/contact' | '/assistant' | '/community' | '/learning' | '/api/guide' | '/privacy' | '/trading' | '/sitemap.xml' | '/robots.txt' | '/goods-trade' | '/profile' | '/roadmap'
+  fullPaths:
+    | '/'
+    | '/assistant'
+    | '/auth'
+    | '/community'
+    | '/contact'
+    | '/goods-trade'
+    | '/leadership'
+    | '/learning'
+    | '/privacy'
+    | '/profile'
+    | '/roadmap'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/trading'
+    | '/api/guide'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/leadership' | '/contact' | '/assistant' | '/community' | '/learning' | '/api/guide' | '/privacy' | '/trading' | '/sitemap.xml' | '/robots.txt' | '/goods-trade' | '/profile' | '/roadmap'
-  id: '__root__' | '/' | '/auth' | '/leadership' | '/contact' | '/assistant' | '/community' | '/learning' | '/api/guide' | '/privacy' | '/trading' | '/sitemap.xml' | '/robots.txt' | '/goods-trade' | '/profile' | '/roadmap'
+  to:
+    | '/'
+    | '/assistant'
+    | '/auth'
+    | '/community'
+    | '/contact'
+    | '/goods-trade'
+    | '/leadership'
+    | '/learning'
+    | '/privacy'
+    | '/profile'
+    | '/roadmap'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/trading'
+    | '/api/guide'
+  id:
+    | '__root__'
+    | '/'
+    | '/assistant'
+    | '/auth'
+    | '/community'
+    | '/contact'
+    | '/goods-trade'
+    | '/leadership'
+    | '/learning'
+    | '/privacy'
+    | '/profile'
+    | '/roadmap'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/trading'
+    | '/api/guide'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthRoute: typeof AuthRoute
-  LeadershipRoute: typeof LeadershipRoute
-  ContactRoute: typeof ContactRoute
   AssistantRoute: typeof AssistantRoute
+  AuthRoute: typeof AuthRoute
   CommunityRoute: typeof CommunityRoute
-  LearningRoute: typeof LearningRoute
-  ApiGuideRoute: typeof ApiGuideRoute
-  PrivacyRoute: typeof PrivacyRoute
-  TradingRoute: typeof TradingRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  ContactRoute: typeof ContactRoute
   GoodsTradeRoute: typeof GoodsTradeRoute
+  LeadershipRoute: typeof LeadershipRoute
+  LearningRoute: typeof LearningRoute
+  PrivacyRoute: typeof PrivacyRoute
   ProfileRoute: typeof ProfileRoute
   RoadmapRoute: typeof RoadmapRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TradingRoute: typeof TradingRoute
+  ApiGuideRoute: typeof ApiGuideRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/roadmap': {
-      id: '/roadmap'
-      path: '/roadmap'
-      fullPath: '/roadmap'
-      preLoaderRoute: typeof RoadmapRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assistant': {
+      id: '/assistant'
+      path: '/assistant'
+      fullPath: '/assistant'
+      preLoaderRoute: typeof AssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/goods-trade': {
+      id: '/goods-trade'
+      path: '/goods-trade'
+      fullPath: '/goods-trade'
+      preLoaderRoute: typeof GoodsTradeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leadership': {
+      id: '/leadership'
+      path: '/leadership'
+      fullPath: '/leadership'
+      preLoaderRoute: typeof LeadershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learning': {
+      id: '/learning'
+      path: '/learning'
+      fullPath: '/learning'
+      preLoaderRoute: typeof LearningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile': {
@@ -195,11 +297,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/goods-trade': {
-      id: '/goods-trade'
-      path: '/goods-trade'
-      fullPath: '/goods-trade'
-      preLoaderRoute: typeof GoodsTradeRouteImport
+    '/roadmap': {
+      id: '/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof RoadmapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/robots.txt': {
@@ -223,13 +325,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TradingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/guide': {
       id: '/api/guide'
       path: '/api/guide'
@@ -237,74 +332,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/learning': {
-      id: '/learning'
-      path: '/learning'
-      fullPath: '/learning'
-      preLoaderRoute: typeof LearningRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/community': {
-      id: '/community'
-      path: '/community'
-      fullPath: '/community'
-      preLoaderRoute: typeof CommunityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/assistant': {
-      id: '/assistant'
-      path: '/assistant'
-      fullPath: '/assistant'
-      preLoaderRoute: typeof AssistantRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/leadership': {
-      id: '/leadership'
-      path: '/leadership'
-      fullPath: '/leadership'
-      preLoaderRoute: typeof LeadershipRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthRoute: AuthRoute,
-  LeadershipRoute: LeadershipRoute,
-  ContactRoute: ContactRoute,
   AssistantRoute: AssistantRoute,
+  AuthRoute: AuthRoute,
   CommunityRoute: CommunityRoute,
-  LearningRoute: LearningRoute,
-  ApiGuideRoute: ApiGuideRoute,
-  PrivacyRoute: PrivacyRoute,
-  TradingRoute: TradingRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
-  RobotsDottxtRoute: RobotsDottxtRoute,
+  ContactRoute: ContactRoute,
   GoodsTradeRoute: GoodsTradeRoute,
+  LeadershipRoute: LeadershipRoute,
+  LearningRoute: LearningRoute,
+  PrivacyRoute: PrivacyRoute,
   ProfileRoute: ProfileRoute,
   RoadmapRoute: RoadmapRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TradingRoute: TradingRoute,
+  ApiGuideRoute: ApiGuideRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
