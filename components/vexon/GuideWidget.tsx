@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUp, Layers, X } from "lucide-react";
+import { ArrowUp, X } from "lucide-react";
 import { Fragment, useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 
 import { MAX_CHARS, SUGGESTIONS, localAnswer, type GuideMessage } from "@/lib/guide-core";
@@ -104,8 +104,8 @@ export function GuideWidget() {
         >
           <header className="flex items-center justify-between border-b px-4 py-3">
             <div className="flex items-center gap-3">
-              <span className="grid size-9 place-items-center rounded-lg border bg-background/60">
-                <Layers className="size-4" />
+              <span aria-hidden="true" className="grid size-9 place-items-center rounded-md border border-foreground/15 bg-background/60 font-display text-lg font-extrabold leading-none text-chrome">
+                V
               </span>
               <div>
                 <h2 className="font-display text-sm font-semibold">VEXON Guide</h2>
@@ -143,7 +143,7 @@ export function GuideWidget() {
             )}
             {messages.map((m, i) =>
               m.role === "user" ? (
-                <p key={i} className="ml-auto w-fit max-w-[85%] rounded-xl border border-glow/40 bg-glow/10 px-3 py-2">
+                <p key={i} className="ml-auto w-fit max-w-[85%] rounded-xl border border-foreground/15 bg-foreground/[0.06] px-3 py-2">
                   {m.content}
                 </p>
               ) : (
@@ -167,7 +167,7 @@ export function GuideWidget() {
               maxLength={MAX_CHARS}
               placeholder="Ask about VEXON TECH…"
               aria-label="Ask the VEXON Guide"
-              className="min-w-0 flex-1 rounded-full border bg-background/60 px-4 py-2.5 text-base outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-glow focus-visible:ring-2 focus-visible:ring-glow/40"
+              className="min-w-0 flex-1 rounded-md border bg-background/60 px-4 py-2.5 text-base outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground/60 focus-visible:ring-2 focus-visible:ring-foreground/20"
             />
             <button
               type="submit"
@@ -187,9 +187,9 @@ export function GuideWidget() {
           type="button"
           onClick={() => setOpen(true)}
           aria-haspopup="dialog"
-          className="pointer-events-auto flex items-center gap-3 rounded-full border bg-card/80 px-6 py-3.5 font-display text-sm font-semibold shadow-xl backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:border-glow/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-glow/60"
+          className="bracket-btn pointer-events-auto flex items-center gap-3 bg-card/90 px-6 py-3.5 font-mono text-xs uppercase tracking-[0.18em] shadow-xl backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
         >
-          <Layers className="size-4" />
+          <span aria-hidden="true" className="font-display text-base font-extrabold leading-none text-chrome">V</span>
           Ask AI for guides
         </button>
       )}
